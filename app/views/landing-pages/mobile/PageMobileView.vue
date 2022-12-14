@@ -1,6 +1,7 @@
 <template>
   <div id="page-mobile">
     <div class="page-mobile-container">
+      
       <a v-if="isCodeCombat" href="/"><img class="coco-logo" src="/images/pages/base/logo.png"></a>
       <a v-if="isOzaria" href="/"><img class="ozaria-logo" src="/images/pages/mobile/ozaria-logo.svg"></a>
       <p v-if="activeStep!==STEP_DONE" class="subtitle">{{ $t('mobile_landing.subtitle') }}</p>
@@ -82,11 +83,11 @@
 
 <script>
 import utils from 'core/utils'
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import User from '../../../models/User'
 import { register } from 'core/api/mobile'
 import { debounce } from 'lodash'
-import BaseCloudflareVideo from 'ozaria/site/components/common/BaseCloudflareVideo'
+import BaseCloudflareVideo from 'app/components/common/BaseCloudflareVideo'
 import FinalFooter from 'app/components/common/FinalFooter'
 
 export default Vue.extend({
@@ -114,7 +115,7 @@ export default Vue.extend({
       isEmailAvailable: false,
       checkingEmail: false,
       checkEmailState: null,
-      activeStep: 2,
+      activeStep: 0,
       STEP_EMAIL: 0,
       STEP_NAME: 1,
       STEP_DONE: 2,
